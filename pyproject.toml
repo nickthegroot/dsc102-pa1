@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dsc102-pa1"
+version = "0.1.0"
+description = ""
+authors = ["Nick DeGroot <1966472+nickthegroot@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "~3.8"
+dask = {extras = ["complete"], version = "^2021.4.1"}
+fastparquet = "^0.6.2"
+dask-ml = {extras = ["complete"], version = "^1.9.0"}
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^5.5.4"
+autopep8 = "^1.5.7"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
