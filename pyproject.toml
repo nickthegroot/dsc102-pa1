@@ -7,9 +7,10 @@ authors = ["Nick DeGroot <1966472+nickthegroot@users.noreply.github.com>"]
 [tool.poetry.dependencies]
 python = "~3.8"
 dask = {extras = ["complete"], version = "^2021.4.1"}
-fastparquet = "^0.6.2"
 dask-ml = {extras = ["complete"], version = "^1.9.0"}
 pyspark = "^3.1.2"
+pyarrow = "^4.0.1"
+s3fs = "^2021.5.0"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^5.5.4"

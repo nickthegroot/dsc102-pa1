@@ -1,9 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
+from pyspark.sql.types import DateType, FloatType, IntegerType, StringType, StructType
 import sys
-
-from pyspark.sql.types import DateType, FloatType, IntegerType, NumericType, StringType, StructType
-
 
 class PerformanceDataFrame:
     df: DataFrame
@@ -71,14 +69,16 @@ class PerformanceDataFrame:
 
             return (row['Loan Sequence Number'], label)
 
-        loan_updates = self.df.rdd.map(process_row).toDF(["Loan Sequence Number", "Label"])
-        return loan_updates.groupBy('Loan Sequence Number').max('Label').withColumnRenamed('max(Label)', 'Label')
+        loan_updates = self.df.rdd.map(process_row).toDF(["LoanSequenceNumber", "Label"])
+        return loan_updates.groupBy('LoanSequenceNumber').max('Label').withColumnRenamed('max(Label)', 'Label')
 
 
 if __name__ == '__main__':
+    # Operation: spark- label_prep.py 
     spark = SparkSession.builder.getOrCreate()
     data_src = sys.argv[1]
+    output_src = sys.argv[2]
 
     df = PerformanceDataFrame(data_src)
     processed = df.process()
-    processed.show()
+    processed.write.parquet(output_src)
