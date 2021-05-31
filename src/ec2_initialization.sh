@@ -14,4 +14,6 @@ poetry install --no-dev
 
 # PASTE AWS CREDENTIALS
 
-poetry run python src/feature_prep.py "s3://dsc102-nickdegroot-scratch/data/historical_data_2017*.txt" "s3://dsc102-nickdegroot-scratch/2017-features.parquet"
+poetry run python src/feature_prep.py \
+    "s3://dsc102-nickdegroot-scratch/data/historical_data_2017*.txt" \
+    "s3://dsc102-nickdegroot-scratch/2017-features.parquet"

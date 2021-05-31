@@ -1,0 +1,12 @@
+digraph G {
+    // splines="FALSE";
+
+    // /* Entities */
+    feat [label="Feature Engineering"]
+    label [label="Label Generation"]
+    model [label="Model Generation"]
+    data [label="Data (S3)", shape="cylinder"]
+    
+    // /* Relationships */
+    data -> feat, label -> model
+}
